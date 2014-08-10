@@ -41,10 +41,10 @@ clientDisconnected = function(socket){
 
 broadCastMessage = function(data){
   //call the phone message api;
-  var key = 'b7fffd74';
-  var secret = '9dba189e';
-  var senderID = '12135455010';
-  var destination_number = '13127148774';
+  var key = '';
+  var secret = '';
+  var senderID = '';
+  var destination_number = '';
   var messagebody = data.replace(" " , "+");
   var url = "http://rest.nexmo.com/sms/xml?api_key="+key+"&api_secret="+secret+"&from="+senderID+"&to="+destination_number+"&text="+messagebody;
   console.log(url);
@@ -58,8 +58,8 @@ var nodemailer = require('nodemailer');
 smtpTransport = nodemailer.createTransport("SMTP", {
     service: "Gmail",
     auth: {
-        user: "saipramod43@gmail.com",
-        pass: "Ashwini#31"
+        user: "",
+	password: ""
     }
 });
 
