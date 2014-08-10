@@ -1,0 +1,21 @@
+doctype html
+html(lang="en")
+  head
+    title= title
+    script(src="http://code.jquery.com/jquery-2.1.0.js")
+    script(src="http//cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.16/socket.io.min.js")
+    script(src="client.js")
+  body
+    h1 #{description}
+    h4 Welcome to the Blogs #{usernameis} !!
+    #yousay
+        form(name="input", action="/blog/post")
+           | #{usernameis} says :
+           input(type="text", name="message")
+           input(type="submit", value="Submit")
+    #othersay
+        ul
+           each listThing in list
+              li 
+              p #{listThing.user} says : #{listThing.message}
+              

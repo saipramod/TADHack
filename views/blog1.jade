@@ -1,0 +1,33 @@
+doctype html
+html(lang="en")
+  head
+    title= title
+    script(src="http://code.jquery.com/jquery-2.1.0.js")
+    script(src="http://cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.16/socket.io.min.js")
+    script(src="/socket.io/socket.io.js")
+    script(src="client.js")
+  body
+    h1 #{description}
+    h4 Welcome to the Blogs #{usernameis} !!
+    |<script>
+    |var socket = io.connect('ws://localhost:7080');
+    |$(document).keypress( function (event) {
+    |if(event.which == 13) {
+    |console.log("enter pressed");
+    |event.preventDefault();
+    |socket.emit('message',$('#outgoingChatMessage').val());
+    |$('#incomingChatMessages').append($('<ul></ul>').text($('#outgoingChatMessage').val()));
+    |$('#outgoingChatMessage').val('');
+    |}
+    |});
+    |socket.on('message', function (data){
+    |$("#incomingChatMessages").append("</br>"+data);
+    |});
+    |</script>
+    #yousay
+      input(type="text",id="outgoingChatMessage" name="message")
+    #incomingChatMessages
+        ul
+           each listThing in list
+              li
+              p #{listThing.user} says : #{listThing.message}

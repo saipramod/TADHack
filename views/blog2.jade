@@ -1,0 +1,28 @@
+doctype html
+html(lang="en")
+  head
+    title= "APIMash"
+    script(src="http://code.jquery.com/jquery-2.1.0.js")
+    
+    script(src="http://cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.16/socket.io.min.js")
+    |<script>
+    |   var username = "#{usernameis}";
+    |</script>
+    script(src="https://maps.googleapis.com/maps/api/js?v=3.exp")
+    script(src="client.js")
+    script(src="javascripts/facebook.js")
+
+    
+
+  body
+    h1 #{description}
+    h4 Welcome to the Blogs #{usernameis} !!
+    #yousay
+      input(type="text",id="outgoingChatMessage",name="message",maxlength="300",size="35",style="height:100px;font-size:14pt;fontfamily:Arial;color: #5a5a5a;background-color:yellow; width=200px")
+    br
+    br
+    |<input type="checkbox" id="broadcast">broadcast - you message will be broadcasted to your contacts<br>
+    |<input type="checkbox" id="emergency">emergency - broadcast + your location<br>
+    #incomingChatMessages
+
+        

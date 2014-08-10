@@ -1,0 +1,13 @@
+doctype html
+html(lang="en")
+  head
+    title= "APIMash"
+  body
+    h1 Welcome to APIMash !!
+    form(name="input", action="/blog")
+        | Enter your Mashid:
+        input(type="text", name="user")
+        input(type="submit", value="Start Blogging")
+    ul
+           each listThing in list
+              p #{listThing.message}
